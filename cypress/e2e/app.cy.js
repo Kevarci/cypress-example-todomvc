@@ -27,26 +27,14 @@ describe('TodoMVC - React', function () {
   let TODO_ITEM_THREE = 'book a doctors appointment'
 
   beforeEach(function () {
-    // By default Cypress will automatically
-    // clear the Local Storage prior to each
-    // test which ensures no todos carry over
-    // between tests.
-    //
-    // Go out and visit our local web server
-    // before each test, which serves us the
-    // TodoMVC App we want to test against
-    //
-    // We've set our baseUrl to be http://localhost:8888
-    // which is automatically prepended to cy.visit
-    //
+    // De forma predeterminada, Cypress borrará automáticamente el almacenamiento local antes de cada prueba, lo que garantiza que no se transfieran todos los datos entre las pruebas.
+    // Salga y visite nuestro servidor web local antes de cada prueba, que nos proporciona la aplicación TodoMVC que queremos probar. Hemos configurado nuestra baseUrl en http://localhost:8888, que se antepone automáticamente a cy.visit.
     // https://on.cypress.io/api/visit
     cy.visit('/')
   })
 
   afterEach(() => {
-    // In firefox, blur handlers will fire upon navigation if there is an activeElement.
-    // Since todos are updated on blur after editing,
-    // this is needed to blur activeElement after each test to prevent state leakage between tests.
+    // En Firefox, los controladores de desenfoque se activarán durante la navegación si hay un elemento activo. Dado que todos se actualizan en desenfoque después de la edición, esto es necesario para desenfocar activeElement después de cada prueba para evitar fugas de estado entre pruebas.
     cy.window().then((win) => {
       // @ts-ignore
       win.document.activeElement.blur()
