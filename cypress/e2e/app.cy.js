@@ -52,9 +52,7 @@ describe('TodoMVC - React', function () {
 
   context('When page is initially opened', function () {
     it('should focus on the todo input field', function () {
-      // get the currently focused element and assert
-      // that it has class='new-todo'
-      //
+      // obtener el elemento actualmente enfocado y afirmar que tiene class='new-todo'
       // http://on.cypress.io/focused
       cy.focused().should('have.class', 'new-todo')
     })
@@ -62,11 +60,7 @@ describe('TodoMVC - React', function () {
 
   context('No Todos', function () {
     it('should hide #main and #footer', function () {
-      // Unlike the TodoMVC tests, we don't need to create
-      // a gazillion helper functions which are difficult to
-      // parse through. Instead we'll opt to use real selectors
-      // so as to make our testing intentions as clear as possible.
-      //
+      // A diferencia de las pruebas de TodoMVC, no necesitamos crear millones de funciones auxiliares que son difíciles de analizar. En su lugar, optaremos por utilizar selectores reales para que nuestras intenciones de prueba sean lo más claras posible.
       // http://on.cypress.io/get
       cy.get('.todo-list li').should('not.exist')
       cy.get('.main').should('not.exist')
