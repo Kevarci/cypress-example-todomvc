@@ -4,6 +4,7 @@ describe('Test', ()=>{
     let TODO_ITEM_THREE = 'book a doctors appointment'
     
     beforeEach( ()=> {
+        cy.once('uncaught:exception', () => false),
         cy.visit('http://localhost:8888/#/')
     })
 
@@ -39,5 +40,10 @@ describe('Test', ()=>{
         cy.go('back')
         cy.reload(true)
 
+    })
+    it('Probando los yields', ()=> {
+        cy.get('.info').then((info) => {
+            cy.wrap(info).should('have.class', 'info')
+        })
     })
 })
