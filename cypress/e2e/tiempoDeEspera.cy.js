@@ -20,6 +20,6 @@ it('Wait test', ()=> {
     cy.wait('@getComment').its('response.statucode').should()
 })
 it('Deshabilitar el retry', ()=> {
-    cy.get(':nth-child(3) > :nth-child(1) > .card-body > h5', {timeout: 0} )
+    cy.get(':nth-child(3) > :nth-child(1) > .card-body > h5', {time} )
 })
 })
